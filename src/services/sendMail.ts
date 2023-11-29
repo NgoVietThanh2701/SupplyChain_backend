@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 
-const sendMailOTP = async (email: string, OTP: number) => {
+const sendMail = async (mailOptions: any) => {
    const transporter = nodemailer.createTransport({
       service: 'gmail',
       port: 465,
@@ -16,13 +16,6 @@ const sendMailOTP = async (email: string, OTP: number) => {
       }
    });
 
-   const mailOptions = {
-      from: '"Supply chain 👻" ngovietthanh680@gmail.com',
-      to: email,
-      subject: 'OTP for Registration',
-      text: `Your OTP is: ${OTP}`,
-   };
-
    await transporter.sendMail(mailOptions, (error: any, info: any) => {
       if (error) {
          return error;
@@ -33,4 +26,4 @@ const sendMailOTP = async (email: string, OTP: number) => {
    });
 }
 
-export default sendMailOTP;
+export default sendMail;

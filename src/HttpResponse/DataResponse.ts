@@ -6,18 +6,11 @@ export const DataResponse = (isError: boolean, message: string, data?: any) => {
    }
 }
 
-export const DataTokenResponse = (isError: boolean, message: string, token: string, refreshToken: string) => {
-   return {
-      error: isError,
-      message,
-      token,
-      refreshToken
-   }
-}
-
 export class MessageResponse {
+   static ERROR_OCCURRED = 'An error occurred';
    static APPROVE_ACCOUNT_SUCCESS = 'Add account succesfully.';
-   static NOT_ADMIN = 'Please login with admin acount.'
+   static NOT_ADMIN = 'Please login with admin acount.';
+   static NOT_THIRDPATTY = 'Please login with Third Party account.';
    static SUCCESS = 'Success.';
    static MISSING_INPUT = 'Missing input.';
    static ACCOUNT_EXISTS = 'Account has been exists.';
