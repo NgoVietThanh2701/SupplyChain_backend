@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 initRoutes(app);
-app.use(express.static('./public'));
+// app.use(express.static('./public'));
 
 /* create table to database */
 // (async () => {

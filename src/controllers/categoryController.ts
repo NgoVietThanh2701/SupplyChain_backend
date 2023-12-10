@@ -19,8 +19,8 @@ export const createCategory = async (req: Request, res: Response) => {
 
 export const getCategories = async (req: Request, res: Response) => {
    try {
-      const response = await Category.findAll({ attributes: { exclude: ['updatedAt'] } });
-      return res.status(HttpStatusCode.INSERT_OK).json(DataResponse(false, MessageResponse.SUCCESS, response));
+      const response = await Category.findAll({ attributes: { exclude: ['id', 'updatedAt'] } });
+      return res.status(HttpStatusCode.OK).json(DataResponse(false, MessageResponse.SUCCESS, response));
    } catch (error: any) {
       throw new Exception(error.message);
    }

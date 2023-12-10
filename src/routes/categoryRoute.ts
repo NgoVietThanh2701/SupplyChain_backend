@@ -1,11 +1,11 @@
 import express from 'express';
 import * as categoryController from '../controllers/categoryController';
-import isThirdParty from '../authentication/isThirdParty';
+import isFarmer from '../authentication/isFarmer';
 
 const router = express.Router();
-router.post('/create', isThirdParty, categoryController.createCategory);
-router.get('/get', isThirdParty, categoryController.getCategories);
-router.patch('/update/:code', isThirdParty, categoryController.updateCategory);
-router.delete('/delete/:code', isThirdParty, categoryController.deleteCategory);
+router.post('/create', isFarmer, categoryController.createCategory);
+router.get('/get', isFarmer, categoryController.getCategories);
+router.patch('/update/:code', isFarmer, categoryController.updateCategory);
+router.delete('/delete/:code', isFarmer, categoryController.deleteCategory);
 
 export default router;
