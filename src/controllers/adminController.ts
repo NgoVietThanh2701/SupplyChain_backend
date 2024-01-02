@@ -48,7 +48,6 @@ export const requestUsers = async (req: Request, res: Response) => {
 
 export const addUser = async (req: Request, res: Response) => {
    const code = req.params.code;
-   console.log(code)
    try {
       const user: any = await User.findOne({ where: { code } });
       if (!user) return res.status(HttpStatusCode.BAD_REQUEST).json(DataResponse(true, MessageResponse.ACCOUNT_NO_EXISTS));
