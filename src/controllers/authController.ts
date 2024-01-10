@@ -116,3 +116,19 @@ export const getMe = async (req: Request, res: Response) => {
       throw new Exception(error.message);
    }
 }
+
+export const getInfoUser = async (req: Request, res: Response) => {
+   const code = req.params.code;
+   try {
+      const user: any = await User.findOne({ where: { code: code } });
+      if (!user) return res.status(HttpStatusCode.BAD_REQUEST).json(DataResponse(true, MessageResponse.ACCOUNT_NO_EXISTS));
+      const response = await User.findOne(
+         {
+            where: { id: user.id },
+            attributes: { include: ['code', 'name', 'email', 'description', 'addressWallet', 'role'] }
+         });
+      return res.status(HttpStatusCode.OK).json(DataResponse(false, MessageResponse.SUCCESS, response));
+   } catch (error: any) {
+      throw new Exception(error.message);
+   }
+}

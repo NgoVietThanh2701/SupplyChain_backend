@@ -5,7 +5,7 @@ import { DataResponse, MessageResponse } from '../HttpResponse/DataResponse';
 
 export default function checkToken(req: any, res: Response, next: NextFunction) {
    if (req.url.toLowerCase().trim() === '/api/v1/auth/login' || req.url.toLowerCase().trim() === '/api/v1/auth/register' ||
-      req.url.toLowerCase().trim() === '/api/v1/auth/verify-otp' || req.url.toLowerCase().trim() === '/api/v1/auth/refresh-token') {
+      req.url.toLowerCase().trim() === '/api/v1/auth/verify-otp' || req.url.toLowerCase().trim() === '/api/v1/auth/refresh-token' || req.url.toLowerCase().trim() === '/api/v1/auth/get-info-user/:code') {
       next();
       return;
    }

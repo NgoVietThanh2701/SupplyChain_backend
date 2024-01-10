@@ -8,5 +8,6 @@ router.post('/register', body('email').isEmail(), body('password').isLength({ mi
 router.post('/verify-otp', authController.verifyOTP);
 router.post('/login', authController.login);
 router.get('/getMe', authController.getMe);
+router.get('/get-info-user/:code', authController.getInfoUser);
 
 export default router;
